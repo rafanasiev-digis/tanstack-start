@@ -1,11 +1,10 @@
-import { TestService } from "#/testService";
+import { getTest } from "#/testService";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/")({
 	component: App,
 	loader: async () => {
-		const testService = new TestService();
-		const test = await testService.getTest();
+		const test = await getTest();
 		return { test };
 	},
 });
